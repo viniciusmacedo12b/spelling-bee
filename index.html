@@ -3,24 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>speling-bee</title>
+    <title>spelling-bee</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon (1).ico" type="image/x-icon">
 </head>
 <body>
-    <audio id="acerto" src="correct-6033.mp3"></audio>
-    <audio id="erro" src="wronganswer-37702.mp3"></audio>
     <div id="card">
-        <p id="score">score:0</p>
-        <p id="highscore">high-score:0</p>
-        <h1>speling bee train</h1>
-        <button onclick="responsiveVoice.speak(palavra);"  type="button" value="Play" id="repeat">Play</button>
-    <div id="game">
-    <input type="text" placeholder="digite a palavra" maxlength="20" id="spelling" autocomplete="off">
-
-    <button onclick="proximo()"  type="button" value="Play" id="score">enviar</button>
+        <h1>escolha seu nivel de dificuldade</h1>
+        <div id="dificuldades">
+        <button onclick="facil()">facil</button>
+        <button onclick="medio()">medio</button>
+        <button onclick="dificil()">dificil</button>
+        <button onclick="aleatorio()">aleatorio(recomendado)</button>
     </div>
     </div>
     <script src="script.js"></script>
-    <script src="https://code.responsivevoice.org/responsivevoice.js?key=DR7Rdm9R"></script>
 </body>
 </html>
