@@ -8,13 +8,14 @@ var scorenumber = 0
 var highscorenumber = 0
 var scoretext = document.getElementById("score")
 var highscoretext = document.getElementById("highscore")
+var spelling = document.getElementById("spelling")
 
 function proximo(){
-    var spelling = document.getElementById("spelling").value
-    if (spelling.toUpperCase() == palavra.toUpperCase())
+    if (spelling.value.toUpperCase() == palavra.toUpperCase())
     {
+    
         document.getElementById("card").style.backgroundColor = "green"
-        spelling = ""
+        spelling.value = ""
         setTimeout(()=>{document.getElementById("card").style.backgroundColor = "white"}, 100)
         correto.play()
         scorenumber++
@@ -22,7 +23,7 @@ function proximo(){
     }
     else{
       document.getElementById("card").style.backgroundColor = "red"
-        spelling = ""
+        spelling.value = ""
         setTimeout(()=>{document.getElementById("card").style.backgroundColor = "white"}, 100)
         erro.play()
         correcao.innerHTML = palavra
@@ -82,11 +83,25 @@ if (diff == 2)
     }
     if (diff== 3)
         {
-            jogo = ["Incorruptible", "Incorruptible", "Righteousness", "Thessalonians", "Sanctification", "Melchizedek", "Incomparable", "Justification", "Immanent", "Transcendent", "Glorification", "Regeneration", "Omnipresent", "Compassionate", "Unfathomable"]
+            jogo = ["Incorruptible", "Incorruptible", "Righteousness", "Thessalonians", "Sanctification", "Melchizedek", "Incomparable", "Justification", "Immanent", "Transcendent", "Glorification", "Regeneration", "Omnipresent", "Compassionate", "Unfathomable", "Intercessor"]
             palavra = jogo[Math.floor(Math.random() * 15)]
         }
         if (diff== 4)
             {
-                jogo = ["Joshua", "Gideon", "Deborah", "Zealous", "Provider", "Sustainer", "Solomon", "Creator", "Elijah", "Mighty", "Isaiah", "Invisible", "Jacob", "Ezekiel", "Majestic", "Infinite", "Esther", "Redemption", "Sovereign", "Nehemiah", "Immortal", "Jonathan", "Jonathan", "Redeemer", "Truthful", "Nazareth", "Golgotha", "Deliverer", "Shepherd", "Messiah", "Gracious", "Shekinah", "Atonement", "Merciful", "Incorruptible", "Incorruptible", "Righteousness", "Thessalonians", "Sanctification", "Melchizedek", "Incomparable", "Justification", "Immanent", "Transcendent", "Glorification", "Regeneration", "Omnipresent", "Compassionate","Unfathomable"]
+                jogo = ["Joshua", "Gideon", "Deborah", "Zealous", "Provider", "Sustainer", "Solomon", "Creator", "Elijah", "Mighty", "Isaiah", "Invisible", "Jacob", "Ezekiel", "Majestic", "Infinite", "Esther", "Redemption", "Sovereign", "Nehemiah", "Immortal", "Jonathan", "Jonathan", "Redeemer","Intercessor","Truthful", "Nazareth", "Golgotha", "Deliverer", "Shepherd", "Messiah", "Gracious", "Shekinah", "Atonement", "Merciful", "Incorruptible", "Incorruptible", "Righteousness", "Thessalonians", "Sanctification", "Melchizedek", "Incomparable", "Justification", "Immanent", "Transcendent", "Glorification", "Regeneration", "Omnipresent", "Compassionate","Unfathomable"]
                 palavra = jogo[Math.floor(Math.random() * 50)]            
             }
+
+            document.body.addEventListener("keyup", (event)=>{
+               if (event.code == "Enter")
+               {
+                proximo()
+               }
+               if (event.code == "Space")
+                {
+                    responsiveVoice.speak(palavra);
+                    console.log(spelling.value)
+                    console.log(palavra)
+                  spelling.value = spelling.value.trim()
+                }
+            })
