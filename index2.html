@@ -10,10 +10,14 @@
 <body>
     <audio id="acerto" src="correct-6033.mp3"></audio>
     <audio id="erro" src="wronganswer-37702.mp3"></audio>
+    <audio id="hiperacerto" src="hipercorrect.wav"></audio>
+    <audio id="hipererro" src="hiperwrong.wav"></audio>
     <div id="card">
         <p id="score">score:0</p>
         <p id="highscore">high-score:0</p>
+        <p id="desafio">palavra: 0/50</p>
         <h1>speling bee train</h1>
+        <h2 id="perda">mais sorte da proxima <br> vez</h2>
         <button onclick="responsiveVoice.speak(palavra);"  type="button" value="Play" id="repeat">Play</button>
     <div id="game">
     <input type="text" placeholder="digite a palavra" maxlength="20" id="spelling" autocomplete="off">

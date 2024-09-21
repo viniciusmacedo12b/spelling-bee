@@ -1,19 +1,25 @@
 var palavra
 var jogo = []
 palavra = jogo[Math.floor(Math.random() * 50)]
-console.log(palavra)
 var correto = document.getElementById("acerto")
 var erro = document.getElementById("erro")
+var hipercorreto = document.getElementById("hiperacerto")
+var hipererro = document.getElementById("hipererro")
 var scorenumber = 0
 var highscorenumber = 0
+var pal = 0
 var scoretext = document.getElementById("score")
 var highscoretext = document.getElementById("highscore")
+var desafio = document.getElementById("desafio")
+var perda = document.getElementById("perda")
 var spelling = document.getElementById("spelling")
+var bee = document.getElementById("premio")
+var numpal = 0
 
 function proximo(){
     if (spelling.value.toUpperCase() == palavra.toUpperCase())
     {
-    
+        numpal++
         document.getElementById("card").style.backgroundColor = "green"
         spelling.value = ""
         setTimeout(()=>{document.getElementById("card").style.backgroundColor = "white"}, 100)
@@ -34,21 +40,47 @@ function proximo(){
         highscoretext.innerHTML = "high-score:"+highscorenumber
         scorenumber = 0
         scoretext.innerHTML = "score:"+scorenumber
+        if (diff == 5){
+            perda.style.display = "block"
+            perda.style.color = "red"
+            perda.style.fontSize = "2rem"
+            hipererro.play()
+            setTimeout(()=>{window.location.href = "index.html";}, 1000)
+        }
     }
     if(diff == 1){
-        palavra = jogo[Math.floor(Math.random() * 16)]
+        palavra = jogo[Math.floor(Math.random() * jogo.length)]
     }
     else if (diff == 2)
     {
-        palavra = jogo[Math.floor(Math.random() * 16)]
+        palavra = jogo[Math.floor(Math.random() * jogo.length)]
     }
     else if (diff == 3)
     {
-        palavra = jogo[Math.floor(Math.random() * 15)]
+        palavra = jogo[Math.floor(Math.random() * jogo.length)]
+    }
+    else if (diff == 4){
+        palavra = jogo[Math.floor(Math.random() * jogo.length)]
     }
     else{
-        palavra = jogo[Math.floor(Math.random() * 50)]
-    }
+        console.log("pal:" + pal) 
+        jogo.splice(pal, 1);
+        console.log("lenght:" + jogo.length)    
+        pal = Math.floor(Math.random() * jogo.length)
+        palavra = jogo[pal]  
+        console.log("palavra:" + palavra)  
+
+        desafio.innerHTML = "palavra:" + numpal + "/50" 
+if (jogo.length == 0){
+    hiperacerto.play()
+    perda.innerHTML = "PARABENS. VOCE GANHOU!"
+    perda.style.display = "block"
+    perda.style.color = "green"
+    perda.style.fontSize = "2rem"
+    localStorage.setItem("vitoria", 1)
+    setTimeout(()=>{window.location.href = "index.html";}, 1000)
+}
+}
 }
 var correcao = document.createElement("p")
 document.getElementById("card").appendChild(correcao)
@@ -69,28 +101,46 @@ function aleatorio(){
     localStorage.setItem("diff", 4)
 window.location.href = "index2.html";
 }
+function challenge(){
+    localStorage.setItem("diff", 5)
+window.location.href = "index2.html";
+desafio.className = "desafiorevelado"
+}
 var diff = localStorage.getItem("diff")
 if (diff == 1)
 {
     jogo = ["Joshua", "Gideon", "Deborah", "Zealous", "Provider", "Sustainer", "Solomon", "Creator", "Elijah", "Mighty", "Isaiah", "Invisible", "Jacob", "Ezekiel", "Majestic", "Infinite", "Esther"]
-    palavra = jogo[Math.floor(Math.random() * 16)]
+    palavra = jogo[Math.floor(Math.random() * jogo.length)]
 }
 if (diff == 2)
     {
 
-        jogo = ["Redemption", "Sovereign", "Nehemiah", "Immortal", "Jonathan", "Jonathan", "Redeemer", "Truthful", "Nazareth", "Golgotha", "Deliverer", "Shepherd", "Messiah", "Gracious", "Shekinah", "Atonement", "Merciful"]
-        palavra = jogo[Math.floor(Math.random() * 16)]
+        jogo = ["Redemption", "Sovereign", "Nehemiah", "Immortal", "Jonathan", "Redeemer", "Truthful", "Nazareth", "Golgotha", "Deliverer", "Shepherd", "Messiah", "Gracious", "Shekinah", "justifier", "Atonement", "Merciful"]
+        palavra = jogo[Math.floor(Math.random() * jogo.length)]
     }
     if (diff== 3)
         {
             jogo = ["reconciliation","Incorruptible", "Righteousness", "Thessalonians", "Sanctification", "Melchizedek", "Incomparable", "Justification", "Immanent", "Transcendent", "Glorification", "Regeneration", "Omnipresent", "Compassionate", "Unfathomable", "Intercessor"]
-            palavra = jogo[Math.floor(Math.random() * 15)]
+            palavra = jogo[Math.floor(Math.random() * jogo.length)]
         }
         if (diff== 4)
             {
-                jogo = ["reconciliation", "Joshua", "Gideon", "Deborah", "Zealous", "Provider", "Sustainer", "Solomon", "Creator", "Elijah", "Mighty", "Isaiah", "Invisible", "Jacob", "Ezekiel", "Majestic", "Infinite", "Esther", "Redemption", "Sovereign", "Nehemiah", "Immortal", "Jonathan", "Jonathan", "Redeemer","Intercessor","Truthful", "Nazareth", "Golgotha", "Deliverer", "Shepherd", "Messiah", "Gracious", "Shekinah", "Atonement", "Merciful", "Incorruptible", "Incorruptible", "Righteousness", "Thessalonians", "Sanctification", "Melchizedek", "Incomparable", "Justification", "Immanent", "Transcendent", "Glorification", "Regeneration", "Omnipresent", "Compassionate","Unfathomable"]
-                palavra = jogo[Math.floor(Math.random() * 50)]            
+                jogo = ["reconciliation", "Joshua", "Gideon", "Deborah", "Zealous", "Provider", "Sustainer", "Solomon", "Creator", "Elijah", "Mighty", "Isaiah", "Invisible", "Jacob", "Ezekiel", "Majestic", "justifier", "Infinite", "Esther", "Redemption", "Sovereign", "Nehemiah", "Immortal", "Jonathan", "Redeemer","Truthful", "Nazareth", "Golgotha", "Deliverer", "Shepherd", "Messiah", "Gracious", "Shekinah", "Atonement", "Merciful", "Incorruptible", "Righteousness", "Thessalonians", "Sanctification", "Melchizedek", "Incomparable", "Justification", "Immanent", "Transcendent", "Glorification", "Regeneration", "Omnipresent", "Intercessor", "Compassionate","Unfathomable"]
+                palavra = jogo[Math.floor(Math.random() * jogo.length)]            
             }
+            if (diff== 5)
+                {
+                    jogo = ["reconciliation", "Joshua", "Gideon", "Deborah", "Zealous", "Provider", "Sustainer", "Solomon", "Creator", "Elijah", "Mighty", "Isaiah", "Invisible", "Jacob", "Ezekiel", "Majestic", "justifier", "Infinite", "Esther", "Redemption", "Sovereign", "Nehemiah", "Immortal", "Jonathan", "Redeemer","Truthful", "Nazareth", "Golgotha", "Deliverer", "Shepherd", "Messiah", "Gracious", "Shekinah", "Atonement", "Merciful", "Incorruptible", "Righteousness", "Thessalonians", "Sanctification", "Melchizedek", "Incomparable", "Justification", "Immanent", "Transcendent", "Glorification", "Regeneration", "Omnipresent", "Intercessor", "Compassionate","Unfathomable"]
+                 pal = Math.floor(Math.random() * jogo.length)
+                 console.log("pal:" + pal)
+                    palavra = jogo[pal]  
+                          console.log("palavra:" + palavra)          
+                          desafio.style.display = "block"
+                          desafio.style.fontSize = "4rem"
+                        scoretext.style.display = "none"
+                        highscoretext.style.display = "none"
+                          console.log("lenght-begin:" + jogo.length)    
+                }
 
             document.body.addEventListener("keyup", (event)=>{
                if (event.code == "Enter")
@@ -100,8 +150,9 @@ if (diff == 2)
                if (event.code == "Space")
                 {
                     responsiveVoice.speak(palavra);
-                    console.log(spelling.value)
-                    console.log(palavra)
                   spelling.value = spelling.value.trim()
+                }
+                if (localStorage.getItem("vitoria") == 1){
+                    bee.style.display = "block"
                 }
             })

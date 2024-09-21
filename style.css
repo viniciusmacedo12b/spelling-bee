@@ -13,11 +13,20 @@ body{
     align-items: center;
     height: 100vh;
 }
+#desafio{
+    display: none;
+}
+.desafiorevelado{
+    display: block;
+}
+#perda{
+    display: none;
+}
 #card{
     display: flex;
     background-color: white;
     flex-direction: column;
-    height: 50%;
+    height: fit-content;
     width: fit-content;
     padding-inline: 5rem;
     justify-content:space-evenly;
@@ -26,6 +35,10 @@ body{
 h1{
     margin-bottom: 3rem;
     font-size:5rem;
+}
+#chall{
+    display: flex;
+    flex-direction: row;
 }
 #repeat{
     width: 80%;
@@ -45,11 +58,11 @@ h1{
 #highscore{
     font-size: 2rem;
 }
-#dificuldades{
+.dificuldades{
     display: flex;
     flex-direction: column;
 }
-#dificuldades > button{
+.dificuldades > button{
     width: 70%;
     height: 4rem;
     border-radius: 2rem;
@@ -58,7 +71,7 @@ h1{
     transition: 0.6s;
     margin-bottom: 2rem;
 }
-#dificuldades > button:hover{
+.dificuldades > button:hover{
     cursor: pointer;
     background-color: #ebb631;
 }
