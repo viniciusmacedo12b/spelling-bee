@@ -70,7 +70,7 @@ function proximo(){
         palavra = jogo[pal]  
         console.log("palavra:" + palavra)  
 
-        desafio.innerHTML = "palavra:" + numpal + "/50" 
+        desafio.innerHTML = "palavra:" + numpal + "/65" 
 if (jogo.length == 0){
     hiperacerto.play()
     perda.innerHTML = "PARABENS. VOCE GANHOU!"
@@ -130,7 +130,7 @@ if (diff == 2)
             }
             if (diff== 5)
                 {
-                    jogo = ["reconciliation", "Joshua", "Gideon", "Deborah", "Zealous", "Provider", "Sustainer", "Solomon", "Creator", "Elijah", "Mighty", "Isaiah", "Invisible", "Jacob", "Ezekiel", "Majestic", "justifier", "Infinite", "Esther", "Redemption", "Sovereign", "Nehemiah", "Immortal", "Jonathan", "Redeemer","Truthful", "Nazareth", "Golgotha", "Deliverer", "Shepherd", "Messiah", "Gracious", "Shekinah", "Atonement", "Merciful", "Incorruptible", "Righteousness", "Thessalonians", "Sanctification", "Melchizedek", "Incomparable", "Justification", "Immanent", "Transcendent", "Glorification", "Regeneration", "Omnipresent", "Intercessor", "Compassionate","Unfathomable"]
+                jogo = ["Begotten", "Propitiation", "Imprecatory", "Septuagint", "Concupiscence", "Sovereignty", "Shalom", "Ceasing", "Incarnation", "Commandment", "Beatitudes", "Witness", "Nazarene", "Pentecost", "Pharaoh", "Scribe", "Multiply", "Remembrance", "Courageous", "Harvest", "Discernment", "Atonement", "Scepter", "Charity", "Deuteronomy","Justification", "Circumstances", "Tabernacle", "Righteousness", "Redemption", "Fruitful", "Vineyard", "Transfiguration", "Prophecy", "Forgiveness", "Messiah", "Beatification", "Chronicles", "Armageddon", "Rebellion", "Hosanna", "Servant", "Wilderness", "Inheritance", "Genesis", "Salvation", "Worship", "Parable", "Longsuffering","Blessing", "Apocalypse", "Pilgrimage", "Immanuel", "Sanctification", "Judgment", "Resurrection", "Tribulation", "Sadducee", "Knowledge", "Pentateuch", "Regeneration", "Omnipresent", "Compassionate", "Intercessor", "Unfathomable"]
                  pal = Math.floor(Math.random() * jogo.length)
                  console.log("pal:" + pal)
                     palavra = jogo[pal]  
