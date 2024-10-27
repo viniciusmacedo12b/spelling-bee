@@ -1,6 +1,6 @@
 var palavra
 var jogo = []
-palavra = jogo[Math.floor(Math.random() * 50)]
+palavra = jogo[Math.floor(Math.random() * 65)]
 var correto = document.getElementById("acerto")
 var erro = document.getElementById("erro")
 var hipercorreto = document.getElementById("hiperacerto")
@@ -120,12 +120,12 @@ if (diff == 2)
     }
     if (diff== 3)
         {
-            jogo = ["reconciliation","Incorruptible", "Righteousness", "Thessalonians", "Sanctification", "Melchizedek", "Incomparable", "Justification", "Immanent", "Transcendent", "Glorification", "Regeneration", "Omnipresent", "Compassionate", "Unfathomable", "Intercessor"]
+            jogo = ["Begotten","Incorruptible", "Righteousness", "Thessalonians", "Sanctification", "Melchizedek", "Incomparable", "Justification", "Immanent", "Transcendent", "Glorification", "Regeneration", "Omnipresent", "Compassionate", "Unfathomable", "Intercessor"]
             palavra = jogo[Math.floor(Math.random() * jogo.length)]
         }
         if (diff== 4)
             {
-                jogo = ["reconciliation", "Joshua", "Gideon", "Deborah", "Zealous", "Provider", "Sustainer", "Solomon", "Creator", "Elijah", "Mighty", "Isaiah", "Invisible", "Jacob", "Ezekiel", "Majestic", "justifier", "Infinite", "Esther", "Redemption", "Sovereign", "Nehemiah", "Immortal", "Jonathan", "Redeemer","Truthful", "Nazareth", "Golgotha", "Deliverer", "Shepherd", "Messiah", "Gracious", "Shekinah", "Atonement", "Merciful", "Incorruptible", "Righteousness", "Thessalonians", "Sanctification", "Melchizedek", "Incomparable", "Justification", "Immanent", "Transcendent", "Glorification", "Regeneration", "Omnipresent", "Intercessor", "Compassionate","Unfathomable"]
+                jogo = ["Begotten", "Propitiation", "Imprecatory", "Septuagint", "Concupiscence", "Sovereignty", "Shalom", "Ceasing", "Incarnation", "Commandment", "Beatitudes", "Witness", "Nazarene", "Pentecost", "Pharaoh", "Scribe", "Multiply", "Remembrance", "Courageous", "Harvest", "Discernment", "Atonement", "Scepter", "Charity", "Deuteronomy","Justification", "Circumstances", "Tabernacle", "Righteousness", "Redemption", "Fruitful", "Vineyard", "Transfiguration", "Prophecy", "Forgiveness", "Messiah", "Beatification", "Chronicles", "Armageddon", "Rebellion", "Hosanna", "Servant", "Wilderness", "Inheritance", "Genesis", "Salvation", "Worship", "Parable", "Longsuffering","Blessing", "Apocalypse", "Pilgrimage", "Immanuel", "Sanctification", "Judgment", "Resurrection", "Tribulation", "Sadducee", "Knowledge", "Pentateuch", "Regeneration", "Omnipresent", "Compassionate", "Intercessor", "Unfathomable"]
                 palavra = jogo[Math.floor(Math.random() * jogo.length)]            
             }
             if (diff== 5)
@@ -134,7 +134,7 @@ if (diff == 2)
                  pal = Math.floor(Math.random() * jogo.length)
                  console.log("pal:" + pal)
                     palavra = jogo[pal]  
-                          console.log("palavra:" + palavra)          
+                        console.log("palavra:" + palavra)          
                           desafio.style.display = "block"
                           desafio.style.fontSize = "4rem"
                         scoretext.style.display = "none"
